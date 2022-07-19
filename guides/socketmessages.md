@@ -1,5 +1,5 @@
 ```js
-EventTypes       : {
+Socket Messages
     // received
     
     StatusReceived         : "ro",
