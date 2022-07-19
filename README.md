@@ -17,3 +17,6 @@ Snippets can also be found in the guides.
 socket.io plays a HUGE part in Betastar. This manages trade & chat.<br>
 If socket.io left Betastar, many of the cooler features would also have to go.<br>
 socket.io uses socket.on and socket.off, and you can use these to make scripts.
+
+## Wiki
+For those using Node.js, see the Wiki!
