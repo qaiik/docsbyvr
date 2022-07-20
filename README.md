@@ -1,5 +1,6 @@
 # Betastar Docs
-Documentation on Betastar.
+Documentation on Betastar.<br>
+Hacks here: https://github.com/BlacketWare/blacket-hacks!
 ## Index
 ### guides
 Guides on the way the code works, or functions you can use.
