@@ -18,8 +18,7 @@ function getBlockedUsers() {
   return JSON.parse(localStorage.blockedUsers) // gets the list and returns it
 }
 
-socket.on("rmes", (m)=>{ // turns on rmes, a socket command in Betastar
-  Array.from(document.querySelector(".chatBox").children).forEach(msg=>{ // for each message
+socket.on("rmes", (m)=>{ // turns on rmes, a socket command in Betastar.  Array.from(document.querySelector(".chatBox").children).forEach(msg=>{ // for each message
     let user = msg.children[1].innerText.split( // gets the user part of the message, since it is all text and no variables in the code
         "] "
     )[1].split(" >")[0]
@@ -29,9 +28,18 @@ socket.on("rmes", (m)=>{ // turns on rmes, a socket command in Betastar
   })
 })
 
+socket.on('request', (user) => { // this is another socket command in Betastar used to check if a trade is sent.
+  let sentuser = `${user}`; // this is a variable representing the user sending the trade
+  if (getBlockedUsers().includes(sentuser)) { // checks if user sending is blocked
+    console.log(sentuser + ' attempted to send a request but was blocked.'); // logs it
+    $(".tradeRequest").remove(); // removes the popup
+    socket.emit('decline'); // declines the trade in the system
+  }
+});
+
 document.addEventListener("keydown", function(event) { // lines 32, 33 check if ESC is pressed
     if (event.keyCode === 27) {
-      var commandsForBlock = prompt('Enter a command:\nBlock - blocks a user\nList - views list of blocked users\nUnblock - unblock a user\n\nScript credit to qaiik, interactive system credit to VillainsRule.').toLowerCase();
+      var commandsForBlock = prompt('Enter a command:\nBlock - blocks a user\nList - views list of blocked users\nUnblock - unblock a user').toLowerCase();
       // lists commands and asks for one, assigns commandsForBlock to their response
       switch (commandsForBlock) { // checks the variable commandsForBlock
         case "block": // if they said block
