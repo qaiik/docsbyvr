@@ -1,44 +1,41 @@
 ```js
 Socket Messages
-    // received
     
-    StatusReceived         : "ro",
-    AnnouncementReceived   : "announcement",
-    EvalReceived           : "run",
-    ChatReceived           : "rmes",
-
-    // trade received
-
-    TradeRequestReceived   : "request",
-    TradeRequestAccepted   : "accepted",
-    TradeRequestDeclined   : "tradeCanceled",
-
-    TradeReady             : "taccepted",
-    TradeUnready           : "changedmind",
-
-    TradeCompleted         : "ntrade",
-
-    TradeAtomsSet          : "catoms",
-    TradeElementSet        : "celement",
-
-    // misc received
-
-    SocketError            : "error",
-
-    // sent
-
-    ChatSend               : "smes",
-
-    // trade sent
-
-    TradeRequestAccept     : "accept",
-    TradeRequestDecline    : "decline",
-    TradeRequestSend       : "trade",
-
-    TradeSetAtoms          : "atoms",
-    TradeSetElement        : "element",
+    Listen
     
-    TradeAccept            : "taccept",
-    TradeDecline           : "tcancel"
+        // Server
+        StatusReceived         : "ro",
+        AnnouncementReceived   : "announcement",
+        EvalReceived           : "run",
+        SocketError            : "error",
+
+        // Trade Requests
+        TradeRequestReceived   : "request",
+        YourRequestAccepted    : "accepted",
+        YourRequestDeclined    : "tradeCanceled",
+
+        // In-Trade
+        TradeAccepted          : "taccepted",
+        TradeChangedMind       : "changedmind",
+        
+        // Chat
+        ChatReceived           : "rmes"
+    
+    Emit
+    
+        // Trade Request
+        IncomingRequestAccept  : "accept",
+        IncomingRequestDecline : "decline",
+        TradeRequestSend       : "trade",
+        CancelOutgoingRequest  : "tcancel"
+        
+        // In-Trade
+        TradeAccept            : "taccept",
+        TradeCompleted         : "ntrade",
+        TradeAtomsSet          : "catoms",
+        TradeElementSet        : "celement",
+
+        // Chat
+        ChatSend               : "smes"
   }
 ```
